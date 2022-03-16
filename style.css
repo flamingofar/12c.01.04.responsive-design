@@ -1,0 +1,304 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+/* RESPONSIVE COLUMNS*/
+body {
+	display: grid;
+	grid-template-columns:
+		minmax(1rem, 1fr)
+		minmax(auto, 1000px)
+		minmax(1rem, 1fr);
+}
+
+body > * {
+	grid-column: 2;
+}
+
+.full {
+	grid: inherit;
+	grid-column: 1 / -1;
+}
+
+.full > * {
+	grid-column: 2;
+}
+
+/*******************************************************************/
+
+nav {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-inline: 1.4rem;
+	height: 8vh;
+
+	background-color: rgb(122, 122, 122);
+}
+
+nav ul {
+	display: flex;
+	justify-content: center;
+}
+
+ul {
+	list-style: none;
+}
+
+nav ul li:not(:first-child) {
+	margin-left: 2rem;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+button {
+	border: none;
+	border-radius: 0;
+	color: black;
+	background-color: rgb(187, 183, 183);
+	padding: 0.5rem 1rem;
+	min-width: 10rem;
+}
+
+img {
+	min-width: 100%;
+	height: auto;
+}
+
+/************************ HEADER ****************************/
+
+header {
+	height: 92vh;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	place-content: center;
+
+	background: rgb(231, 231, 231);
+}
+
+.header_text {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	padding: 1rem 2rem;
+}
+.header_text > * {
+	margin-bottom: 1rem;
+}
+.header_graphics {
+	background-image: url(https://picsum.photos/200/200);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	min-width: 20rem;
+	min-height: 20rem;
+	margin-right: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+	header {
+		grid-template-columns: 1fr;
+	}
+	.header_graphics {
+		margin-right: 0;
+	}
+}
+
+/************************ ADVANTAGES ****************************/
+
+#advantages {
+	display: grid;
+
+	background-color: rgb(255, 255, 255);
+}
+
+.advantages_cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+	gap: 1rem;
+	width: 100%;
+	height: 100%;
+}
+
+.advantages_card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	min-width: 10rem;
+	min-height: 20rem;
+}
+
+.advantages_card_graphics {
+	width: 100%;
+	height: 100%;
+	background-image: url(https://picsum.photos/200);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top center;
+}
+
+.advantages_card_text {
+	margin: 0.5em 0.5em;
+	min-height: 10rem;
+	max-height: 20rem;
+}
+
+.highlight > h2 {
+	place-self: center;
+	text-align: center;
+	width: 60%;
+}
+.highlight > div:last-child {
+	display: flex;
+	justify-content: center;
+}
+/************************ PRODUCT ****************************/
+#product {
+	background-color: rgb(186, 189, 189);
+	height: fit-content;
+	padding: 1rem;
+}
+
+#product > div {
+	height: 100%;
+	display: flex;
+	gap: 1rem;
+}
+
+.product_graphics {
+	flex: 1;
+	background-image: url(https://picsum.photos/200);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
+.product_text {
+	flex: 1.5;
+	display: flex;
+	flex-direction: column;
+}
+.product_text article {
+	margin: 0 1rem 1rem 0;
+}
+.product_text article {
+	margin-right: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+	#product > div {
+		flex-direction: column;
+	}
+	.product_graphics {
+		order: 2;
+		min-width: 20vw;
+		min-height: 50vh;
+	}
+}
+
+/************************ HIGHLIGHT ****************************/
+.highlight {
+	display: grid;
+	place-content: center;
+	margin: 2rem;
+	width: 100%;
+	margin-inline: auto;
+}
+
+.highlight_small_cards {
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+
+	margin-block: 2rem;
+}
+.highlight_small_cards > * {
+	text-align: center;
+}
+
+/************************ TEAM ****************************/
+#team {
+	padding: 2rem;
+	padding-bottom: 0;
+	width: 100%;
+	background-color: rgb(154, 156, 156);
+}
+
+#team > div {
+}
+
+#team article {
+	display: flex;
+	justify-content: stretch;
+}
+
+.team_graphics {
+	flex: 1;
+	width: 100%;
+	height: 40vh;
+	background-image: url(https://picsum.photos/200);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top center;
+}
+.team_text {
+	flex: 1;
+	display: grid;
+	place-content: center;
+}
+
+.order {
+	order: 1;
+}
+
+/************************ CONTACT ****************************/
+#contact {
+	display: flex;
+	padding: 2rem;
+	gap: 1rem;
+
+	background-color: rgb(202, 202, 202);
+}
+
+#contact_form {
+	display: grid;
+	gap: 0.5rem;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.form_group {
+	display: flex;
+	flex-direction: column;
+}
+
+.form_group:nth-child(3) {
+	grid-column: 1/-1;
+}
+textarea {
+	height: 10rem;
+}
+
+@media screen and (max-width: 600px) {
+	#contact {
+		flex-direction: column;
+	}
+}
+
+/************************ FOOTER ****************************/
+footer {
+	padding: 2rem;
+	display: flex;
+	justify-content: space-around;
+
+	background-color: rgb(31, 31, 31);
+}
+footer section {
+	display: flex;
+	gap: 1rem;
+}
